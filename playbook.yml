@@ -1,0 +1,12 @@
+---
+- hosts: webservers
+  tasks:
+    - name: Apacheをインストールする
+      homebrew:
+        name: httpd
+        state: present
+      become: no
+
+    - name: Apacheを起動して有効にする
+      command: brew services start httpd
+      become: no
